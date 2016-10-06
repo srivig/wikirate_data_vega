@@ -1,0 +1,53 @@
+{
+  "width": 400,
+  "height": 200,
+  "padding": {"top": 30,"left": 50,"bottom": 50,"right": 50},
+  "data": [
+    {
+      "name": "table",
+      "values": [
+        {"x": "B","y": 2},
+        {"x": "B+","y": 3},
+        {"x": "B-","y": 7},
+        {"x": "C","y": 15},
+        {"x": "C+","y": 11},
+        {"x": "C-","y": 19},
+        {"x": "D","y": 10},
+        {"x": "D+","y": 7},
+        {"x": "F","y": 6}
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "ordinal",
+      "range": "width",
+      "domain": {"data": "table","field": "x"}
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "range": "height",
+      "domain": {"data": "table","field": "y"},
+      "nice": true
+    }
+  ],
+  "axes": [{"type": "x","scale": "x", "title": "Categories"},{"title":"Companies","type": "y","scale": "y"}],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {"data": "table"},
+      "properties": {
+        "enter": {
+          "x": {"scale": "x","field": "x"},
+          "width": {"scale": "x","band": true,"offset": -1},
+          "y": {"scale": "y","field": "y"},
+          "y2": {"scale": "y","value": 0}
+        },
+        "update": {"fill": {"value": "#674ea7"}},
+        "hover": {"fill": {"value": "#b3a7d3"}}
+      }
+    }
+  ]
+}
